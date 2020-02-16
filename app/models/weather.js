@@ -9,6 +9,6 @@ export default class Weather {
     //      check out the other data that comes back and see if there is anything you want to try
 
     this.city = data.name
-    this.kelvin = data.main.temp
+    this.farenheit = Math.round(((data.main.temp) - 273) * 1.8 + 32);
   }
 }

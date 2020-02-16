@@ -1,8 +1,18 @@
 import TodoService from "../services/todo-service.js";
 import store from "../store.js";
 
-//TODO Create the render function
-function _drawTodos() { }
+function _drawTodos() {
+  let todos = store.State.todos;
+  let todosElem = document.getElementById("list");
+  let todosCountElem = document.getElementById("counter");
+  let template = "";
+
+  todos.forEach(t => {
+    template += t.Template;
+  })
+  todosElem.innerHTML = template;
+  todosCountElem.innerHTML = store.State.todos.length.toString();
+}
 
 export default class TodoController {
   constructor() {
@@ -12,15 +22,14 @@ export default class TodoController {
   }
 
   addTodo(event) {
-    debugger
     event.preventDefault();
     var form = event.target;
     var newToDo = {
       description: form.description.value,
       completed: false,
     };
-    // console.log("controller Todo", newToDo)
     TodoService.addTodoAsync(newToDo);
+    form.reset()
   }
 
   //NOTE This method will pass an Id to your service for the TODO that will need to be toggled
@@ -29,7 +38,7 @@ export default class TodoController {
   }
 
   //NOTE This method will pass an Id to your service for the TODO that will need to be deleted
-  removeTodo(todoId) {
-    TodoService.removeTodoAsync(todoId);
+  removeTodo(id) {
+    TodoService.removeTodoAsync(id);
   }
 }

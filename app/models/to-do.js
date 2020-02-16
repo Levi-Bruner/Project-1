@@ -8,7 +8,9 @@ export default class ToDo {
 
   get Template() {
     return `
-    
+    <li>${this.description} <button onclick="app.todoController.removeTodo('${this.id}')" class="btn btn-danger">x</button><button type="button" onclick="app.todoController.toggleTodoStatus('${this.id}')" name="" title="Mark as completed"
+		id="" class="btn btn-secondary" btn-lg btn-block></button>
+    </li>
     `
   }
 }

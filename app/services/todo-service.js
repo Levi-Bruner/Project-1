@@ -12,8 +12,8 @@ class TodoService {
     todoApi
       .get("")
       .then(res => {
-        store.commit("todos", res.data.data)
-        console.log("pulling from api", store.State.todos)
+        let myTodos = res.data.data.map(t => new ToDo(t));
+        store.commit("todos", myTodos)
       })
       .catch(error => {
         console.error(error);
@@ -34,13 +34,16 @@ class TodoService {
 
   toggleTodoStatusAsync(todoId) {
     let todo = store.State.todos.find(todo => todo.id == todoId);
-    //TODO Make sure that you found a todo,
-    //		and if you did find one
-    //		change its completed status to whatever it is not (ex: false => true or true => false)
-
-    todoApi.put(todoId, todo);
-    //TODO do you care about this data? or should you go get something else?
+    if (todo.completed = "false") {
+      todo.completed = "true";
+    } else if (todo.completed = "true") {
+      todo.completed = "false"
+    }
+    console.log(todo.completed)
   }
+
+  // todoApi.put(todoId, todo);
+  //TODO do you care about this data? or should you go get something else?
 
   removeTodoAsync(id) {
     todoApi
@@ -52,11 +55,9 @@ class TodoService {
       .catch(error => {
         console.error(error);
       });
-    //TODO Work through this one on your own
-    //		what is the request type
-    //		once the response comes back, what do you need to insure happens?
   }
 }
+
 
 const todoService = new TodoService();
 export default todoService;

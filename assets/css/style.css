@@ -2,3 +2,25 @@
   color: red;
   font-size: 2em;
 }
+
+.base {
+  align-items: flex-end;
+}
+
+footer {
+  padding-top: 50vh;
+  justify-content: space-between;
+}
+
+.list-col {
+  background-color: darkgray;
+}
+
+body {
+  color: white;
+  text-shadow: black 1px 1px 1px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}

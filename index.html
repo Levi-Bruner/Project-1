@@ -6,34 +6,48 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Inspire</title>
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
+		rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body id="bg-image">
-	<div id="weather">
-		Your Weather Template
-	</div>
-
-	<div id="quote">
-		The Quote
-	</div>
-
-	<div>
-		A Todo List
-		<div id="todo-error"></div>
-		<!-- <form onsubmit="app.todoController.addToDo(event)">
-			<input type="text" name="description" id="description">
-		</form> -->
-		<form onsubmit="app.todoController.addTodo(event)">
-			<div class="form-group">
-				<label for="description"></label>
-				<input id="description" type="text" class="form-control" placeholder="">
+<body>
+	<div class="container-fluid" id="bg-image">
+		<div class="row justify-content-end">
+			<div class="col-3">
+				<i class="fa fa-cloud"></i> <span id="weather">loading...</span>°
 			</div>
-		</form>
-	</div>
+		</div>
+		<div class="row justify-content-center" id="clock">
+		</div>
+		<footer class="row base">
 
+			<div class="col-3" id="img-cycle">
+			</div>
+
+			<div class="col-6" id="quote">
+				<h5>Quote of the day...</h5>
+			</div>
+
+			<div class="col-3 list-col">
+				<h4>Todo List:</h4>
+				<p>You have <span id="counter">0 </span> task(s) remaining...</p>
+				<form onsubmit="app.todoController.addTodo(event)">
+					<div class="form-group">
+						<label for="description"></label>
+						<input id="description" type="text" class="form-control" placeholder="Add a task...">
+					</div>
+				</form>
+				<div>
+					<ul id="list">
+					</ul>
+				</div>
+			</div>
+		</footer>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
